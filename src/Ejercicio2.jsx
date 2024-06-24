@@ -10,7 +10,14 @@ export default function Ejercicio2() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setMensaje(<p>{formData.nombre} tiene {formData.edad} años.</p>)
+    let mayorDeEdad = ""
+    if (formData.edad >= 18) {
+      mayorDeEdad = "Es mayor de edad"
+    }
+    else {
+      mayorDeEdad = "Es menor de edad"
+    }
+    setMensaje(<p>{formData.nombre} tiene {formData.edad} años. {mayorDeEdad}</p>)
   }
 
   const handleChange = (event) => {
