@@ -2,11 +2,16 @@ import React, {useState} from "react";
 
 export default function Ejercicio2() {
   const [formData, setFormData] = useState({
-    nombre: "-",
-    edad: "-"
+    nombre: "",
+    edad: ""
   });
 
-  const handleSubmit = (event) => {}
+  const [mensaje, setMensaje] = useState(<></>)
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setMensaje(<p>{formData.nombre} tiene {formData.edad} años.</p>)
+  }
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -27,7 +32,7 @@ export default function Ejercicio2() {
         <input name="edad" type="number" onChange={handleChange}/>
         <button type="submit">Subir Info.</button>
       </form>
-      <p><b>{formData.nombre}</b> tiene <b>{formData.edad}</b> años.</p>
+      {mensaje}
     </div>
   )
 }
